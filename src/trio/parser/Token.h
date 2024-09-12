@@ -2,23 +2,24 @@
 #define __TRIO_TOKEN_H
 
 #include <stdlib.h>
+#include <stdint.h>
 
 
-enum Trio_TokenType {
+typedef enum {
     NONE_TOKEN = 0,
 
     // One-char tokens
     LEFT_PAREN, RIGHT_PAREN,
     LEFT_BRACE, RIGHT_BRACE,
-    COMMA, DOT, SEMICOLON,
+    COMMA, DOT, SEMICOLON, COLON,
     MINUS, PLUS, STAR, SLASH,
 
-    // Two(or one)-char tokens
+    // Operators
     BANG, BANG_EQUAL,
     EQUAL, DOUBLE_EQUAL,
     GREATER, GREATER_OR_EQUAL,
     LESS, LESS_OR_EQUAL,
-    ARROW, COLON,
+    ARROW, 
 
     // Literals
     IDENTIFIER, STRING, NUMBER,
@@ -29,22 +30,22 @@ enum Trio_TokenType {
     FOR, WHILE, 
     FN, RETURN,
     CLASS, SUPER, THIS, METHOD,
-    LET, NULL_TOKEN,
+    LET, TRIO_NULL,
     JMP, JO,
     
-    EOF_TOKEN
-};
+    TRIO_EOF
+} Trio_TokenType;
 
 
-struct Trio_Token {
-    const Trio_TokenType type;
+typedef struct {
+    Trio_TokenType type;
     const char* lexeme;
-    const size_t line;
-    const size_t column;
-};
+    size_t line;
+    size_t column;
+} Trio_Token;
 
 
-Trio_Token trio_createEmptyToken();
-Trio_Token trio_createToken(Trio_TokenType type, const char* lexeme, size_t line, size_t column);
+Trio_Token* trio_createEmptyToken();
+Trio_Token* trio_createToken(Trio_TokenType type, const char* lexeme, size_t line, size_t column);
 
 #endif
