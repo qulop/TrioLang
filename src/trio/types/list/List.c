@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 
-#define NODE    struct _ListNode
+#define NODE    struct Trio_ListNode
 
 
 NODE* _allocateNewNode() {
@@ -41,33 +41,33 @@ Trio_List* trio_listCreate() {
 }
 
 
-struct _ListNode* trio_listBegin(Trio_List* list) {
+struct Trio_ListNode* trio_listBegin(Trio_List* list) {
     return (list) ? list->edge->next : NULL; 
 }
 
-struct _ListNode* trio_listRevBegin(Trio_List* list) {
+struct Trio_ListNode* trio_listRevBegin(Trio_List* list) {
     return trio_listEnd(list);
 }
 
 
-struct _ListNode* trio_listEnd(Trio_List* list) {
+struct Trio_ListNode* trio_listEnd(Trio_List* list) {
     return (list) ? list->edge->prev : NULL; 
 }
 
-struct _ListNode* trio_listRevEnd(Trio_List* list) {
+struct Trio_ListNode* trio_listRevEnd(Trio_List* list) {
     return trio_listBegin(list);
 }
 
 
-struct _ListNode* trio_listNext(struct _ListNode* node) {
+struct Trio_ListNode* trio_listNext(struct Trio_ListNode* node) {
     return (node) ? node->next : NULL;
 }   
 
-struct _ListNode* trio_listRevNext(struct _ListNode* node) {
+struct Trio_ListNode* trio_listRevNext(struct Trio_ListNode* node) {
     return (node) ? node->prev : NULL;
 }
 
-struct _ListNode* trio_listAt(Trio_List* list, uint64_t index) {
+struct Trio_ListNode* trio_listAt(Trio_List* list, uint64_t index) {
     if (index == -1)
         return (list->len) ? list->edge->prev : NULL;
 
@@ -107,7 +107,7 @@ void trio_listPushFront(Trio_List* list, void* data, size_t sz) {
 }
 
 
-bool trio_listInsetData(struct _ListNode* pos, void* data, size_t sz) {
+bool trio_listInsetData(struct Trio_ListNode* pos, void* data, size_t sz) {
     if (!pos)
         return false;
 
@@ -118,7 +118,7 @@ bool trio_listInsetData(struct _ListNode* pos, void* data, size_t sz) {
     return true;
 }
 
-bool trio_listInsetNode(struct _ListNode* pos, struct _ListNode* node) {
+bool trio_listInsetNode(struct Trio_ListNode* pos, struct Trio_ListNode* node) {
     if (!pos)
         return false;
 

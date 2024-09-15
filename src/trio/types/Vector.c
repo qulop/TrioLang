@@ -1,7 +1,5 @@
 #include <types/Vector.h>
 
-#include <stdlib.h>
-
 
 const float vectorMaximumFullness = 0.8f;    // In percents
 
@@ -35,6 +33,8 @@ void* trio_vectorEnd(Trio_Vector* vec) {
 
 
 void* trio_vectorAt(Trio_Vector* vec, size_t index) {
+    assert(index < vec->capacity);
+
     return (char*)vec->ptr + (vec->dataSize * index);
 }
 

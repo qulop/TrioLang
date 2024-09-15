@@ -3,7 +3,7 @@
 #include <assert.h>
 
 
-#define NODE    struct _ForwardListNode
+#define NODE    struct Trio_ForwardListNode
 
 
 Trio_ForwardList* trio_forwardListCreate() {
@@ -15,11 +15,11 @@ Trio_ForwardList* trio_forwardListCreate() {
 }
 
 
-struct _ForwardListNode* trio_forwardListBegin(Trio_ForwardList* list) {
+struct Trio_ForwardListNode* trio_forwardListBegin(Trio_ForwardList* list) {
     return (list) ? list->begin : NULL;
 }
 
-struct _ForwardListNode* trio_forwardListNext(struct _ForwardListNode* node) {
+struct Trio_ForwardListNode* trio_forwardListNext(struct Trio_ForwardListNode* node) {
     return (node != NULL && node->data != NULL) ? node->next : NULL;
 }
 

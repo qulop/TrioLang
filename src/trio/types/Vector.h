@@ -2,6 +2,7 @@
 #define __TRIO_VECTOR_H
 
 #include <stdint.h>
+#include <stdlib.h>
 
 
 typedef struct {

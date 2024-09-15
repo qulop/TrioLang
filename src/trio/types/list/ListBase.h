@@ -4,29 +4,29 @@
 #include <stdint.h>
 
 
-struct _ListNode {
+struct Trio_ListNode {
     void* data;
 
-    struct _ListNode* next;
-    struct _ListNode* prev;
+    struct Trio_ListNode* next;
+    struct Trio_ListNode* prev;
 };
 
 typedef struct {
-    struct _ListNode* edge;
+    struct Trio_ListNode* edge;
     
     uint64_t len;
 } Trio_List;
 
 
 
-struct _ForwardListNode {
+struct Trio_ForwardListNode {
     void* data;
 
-    struct _ForwardListNode* next;
+    struct Trio_ForwardListNode* next;
 };
 
 typedef struct {
-    struct _ForwardListNode* begin;
+    struct Trio_ForwardListNode* begin;
 
     uint64_t len;
 } Trio_ForwardList;
